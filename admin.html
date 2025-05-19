@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Naruto World</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function verificarSenha() {
+      const senha = prompt("Digite a senha:");
+      if (senha !== "junior") {
+        alert("Senha incorreta!");
+        window.location.href = "index.html";
+      } else {
+        mostrarPedidos();
+      }
+    }
+
+    function mostrarPedidos() {
+      const pedidos = JSON.parse(localStorage.getItem("pedidos") || "[]");
+      const lista = document.getElementById("pedidos");
+      pedidos.forEach((p, i) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `<b>VIP:</b> ${p.vip}<br/>
+                         <b>Nick:</b> ${p.nick}<br/>
+                         <b>Discord:</b> ${p.discord}<br/>
+                         <b>Comprovante:</b> ${p.comprovante}<br/>
+                         <button onclick="aprovar(${i})">Aprovar</button>
+                         <button onclick="reprovar(${i})">Reprovar</button>`;
+        lista.appendChild(div);
+      });
+    }
+
+    function aprovar(i) {
+      alert("Pedido aprovado!");
+    }
+
+    function reprovar(i) {
+      alert("Pedido reprovado!");
+    }
+
+    window.onload = verificarSenha;
+  </script>
+</head>
+<body>
+  <h2>Admin - Aprovar Pedidos</h2>
+  <div id="pedidos"></div>
+</body>
+</html>

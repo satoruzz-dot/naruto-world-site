@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loja - Naruto World</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h2>Escolha seu VIP</h2>
+  <div id="vip-list"></div>
+  <div id="cart-form" style="display:none;">
+    <h3>Preencha seus dados</h3>
+    <input placeholder="Nickname" id="nick"/><br/>
+    <input placeholder="Discord" id="discord"/><br/>
+    <button onclick="confirmarDados()">Confirmar</button>
+  </div>
+  <div id="pagamento" style="display:none;">
+    <h3>Pagamento via Pix</h3>
+    <p>Chave Pix: <b>juniorgp0013@gmail.com</b></p>
+    <input type="file" id="comprovante"/><br/>
+    <button onclick="criarPedido()">Criar Pedido</button>
+  </div>
+</body>
+</html>
